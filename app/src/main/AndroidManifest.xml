@@ -9,7 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QuizApp">
-        <activity android:name=".MainActivity">
+
+        <!-- アクションバーが表示されないようにする -->
+        <!-- 画面を縦に固定 -->
+        <!-- 使用可能なスペースに合わせてレイアウトがサイズ変更されるようにする -->
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBarTheme"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
