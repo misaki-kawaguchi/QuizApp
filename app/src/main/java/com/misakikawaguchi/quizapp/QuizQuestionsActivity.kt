@@ -1,8 +1,12 @@
 package com.misakikawaguchi.quizapp
 
+import android.graphics.Color
+import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_quiz_questions.*
 
 class QuizQuestionsActivity : AppCompatActivity() {
@@ -48,5 +52,26 @@ class QuizQuestionsActivity : AppCompatActivity() {
         tv_option_two.text = question.optionTwo
         tv_option_three.text = question.optionThree
         tv_option_four.text = question.optionFour
+    }
+
+    // 選択する前（デフォルト）の選択肢の状態を設定する
+    private fun defaultOptionsView() {
+
+        // 選択肢をリストに代入
+        val options = ArrayList<TextView>()
+        options.add(0, tv_option_one)
+        options.add(1, tv_option_two)
+        options.add(2, tv_option_three)
+        options.add(3, tv_option_four)
+
+        // 色・フォントスタイル・ボーダーを設定
+        for(option in options) {
+            option.setTextColor(Color.parseColor("#7a8089"))
+            option.typeface = Typeface.DEFAULT
+            option.background = ContextCompat.getDrawable(
+                this,
+                R.drawable.default_option_border_bg
+            )
+        }
     }
 }
