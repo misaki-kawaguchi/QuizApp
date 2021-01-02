@@ -158,8 +158,35 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    // 背景色を表示する関数
     private fun answerView(answer: Int, drawableView: Int) {
 
+        when(answer) {
+
+             1 -> {
+                 tv_option_one.background = ContextCompat.getDrawable(
+                     this, drawableView
+                 )
+             }
+
+            2 -> {
+                tv_option_two.background = ContextCompat.getDrawable(
+                    this, drawableView
+                )
+            }
+
+            3 -> {
+                tv_option_three.background = ContextCompat.getDrawable(
+                    this, drawableView
+                )
+            }
+
+            4 -> {
+                tv_option_four.background = ContextCompat.getDrawable(
+                    this, drawableView
+                )
+            }
+        }
     }
 
     // 選択肢をクリックした時の処理
