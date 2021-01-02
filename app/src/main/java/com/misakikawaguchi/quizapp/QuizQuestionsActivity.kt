@@ -88,4 +88,25 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         TODO("Not yet implemented")
     }
+
+    // 選択肢をクリックした時の処理
+    private fun selectedOptionsView(tv: TextView, selectedOptionNum: Int) {
+
+        // 最初の状態
+        defaultOptionsView()
+
+        //　選択した質問の選択肢
+        mSelectedOptionPosition = selectedOptionNum
+
+        // クリックすると紫色のボーダーが表示される・太字になる
+        tv.setTextColor(
+            Color.parseColor("#363A43")
+        )
+        tv.setTypeface(tv.typeface, Typeface.BOLD)
+        tv.background = ContextCompat.getDrawable(
+            this,
+            R.drawable.selected_option_border_bg
+        )
+
+    }
 }
