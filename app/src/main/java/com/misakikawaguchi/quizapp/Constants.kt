@@ -3,6 +3,11 @@ package com.misakikawaguchi.quizapp
 // Constantsオブジェクト作成
 object Constants {
 
+    // 結果の画面で必要な定数変数を作成
+    const val USER_NAME: String = "user_name"
+    const val TOTAL_QUESTIONS: String = "total_questions"
+    const val CORRECT_ANSWERS: String = "correct_answers"
+
     // 質問データモデルクラスを使用して質問のリストを作成
     // すべての国旗の画像をドローアブルフォルダに追加して、リストに追加する
     fun getQuestions(): ArrayList<Question> {
