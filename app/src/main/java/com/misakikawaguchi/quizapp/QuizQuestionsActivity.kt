@@ -5,11 +5,12 @@ import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_quiz_questions.*
 
-class QuizQuestionsActivity : AppCompatActivity() {
+class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
     // 現在何問目かと質問リストのグローバル変数を作成
     private var mCurrentPosition: Int = 1
@@ -27,6 +28,12 @@ class QuizQuestionsActivity : AppCompatActivity() {
 
         // 質問を表示する
         setQuestion()
+
+        // 選択肢のすべてのクリックイベントを設定
+        tv_option_one.setOnClickListener(this)
+        tv_option_two.setOnClickListener(this)
+        tv_option_three.setOnClickListener(this)
+        tv_option_four.setOnClickListener(this)
     }
 
     // 以前にonCreateメソッドで実行したUIコンポーネントに質問を設定する関数を作成
@@ -75,5 +82,10 @@ class QuizQuestionsActivity : AppCompatActivity() {
                 R.drawable.default_option_border_bg
             )
         }
+    }
+
+    // 選択肢をクリックした時の処理
+    override fun onClick(v: View?) {
+        TODO("Not yet implemented")
     }
 }
