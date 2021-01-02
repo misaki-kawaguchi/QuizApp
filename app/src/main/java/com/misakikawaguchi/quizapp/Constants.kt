@@ -118,8 +118,8 @@ object Constants {
             "What country does this flag belong to?",
             R.drawable.ic_flag_of_new_zealand,
             "Australia",
-            "New Zealand"
-        "Tuvalu",
+            "New Zealand",
+            "Tuvalu",
             "United Status Of America",
             2
         )
