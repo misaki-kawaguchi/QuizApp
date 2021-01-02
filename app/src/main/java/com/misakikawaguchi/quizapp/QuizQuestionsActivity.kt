@@ -86,7 +86,33 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
     // 選択肢をクリックした時の処理
     override fun onClick(v: View?) {
-        TODO("Not yet implemented")
+
+        // クリックした選択肢のidが
+        when (v?.id) {
+            // 選択肢1の場合は
+            R.id.tv_option_one -> {
+                // 選択肢のテキスト、選択した番号は1
+                selectedOptionsView(tv_option_one, 1)
+            }
+
+            // 選択肢2の場合は
+            R.id.tv_option_two -> {
+                // 選択肢のテキスト、選択した番号は2
+                selectedOptionsView(tv_option_two, 2)
+            }
+
+            // 選択肢3の場合は
+            R.id.tv_option_three -> {
+                // 選択肢のテキスト、選択した番号は3
+                selectedOptionsView(tv_option_three, 3)
+            }
+
+            // 選択肢4の場合は
+            R.id.tv_option_four -> {
+                // 選択肢のテキスト、選択した番号は4
+                selectedOptionsView(tv_option_four, 4)
+            }
+        }
     }
 
     // 選択肢をクリックした時の処理
