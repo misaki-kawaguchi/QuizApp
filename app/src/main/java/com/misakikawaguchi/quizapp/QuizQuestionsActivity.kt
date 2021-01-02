@@ -19,6 +19,9 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     // 選択したオプションのグローバル変数
     private var mSelectedOptionPosition: Int = 0
 
+    // 正解を計算するための変数を追加
+    private var mCorrectAnswers: Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_questions)
@@ -113,7 +116,50 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                 // 選択肢のテキスト、選択した番号は4
                 selectedOptionsView(tv_option_four, 4)
             }
+
+            // SUBMITボタンをクリックイベントを追加
+            R.id.btn_submit -> {
+
+                // 何も選択していない場合
+                if(mSelectedOptionPosition == 0) {
+
+                    // 次のページに進む
+                    mCurrentPosition++
+
+                }else {
+
+                    // 質問のリストをquestionに代入する
+                    val question = mQuestionsList?.get(mCurrentPosition - 1)
+
+                    // 答えが正解かどうか確認する
+                    // 選択した数字と正解の数字が違う場合は背景が赤になる
+                    if(question!!.correctAnswer != mSelectedOptionPosition) {
+                        answerView(mSelectedOptionPosition, R.drawable.wrong_option_border_bg)
+                    } else {
+                        // 正解の場合は正解の数を増やす
+                        mCorrectAnswers++
+                    }
+
+                    // 正解の場合は背景色を緑にする
+                    answerView(question.correctAnswer, R.drawable.correct_option_border_bg)
+
+                    // 現在の問題が質問リストの数と同じ場合はFINISHと表示
+                    // そうでない場合はGO TO NEXT QUESTIONと表示
+                    if(mCorrectAnswers == mQuestionsList!!.size) {
+                        btn_submit.text = "FINISH"
+                    } else {
+                        btn_submit.text = "GO TO NEXT QUESTION"
+                    }
+
+                    // ポジションを0に戻す
+                    mSelectedOptionPosition = 0
+                }
+            }
         }
+    }
+
+    private fun answerView(answer: Int, drawableView: Int) {
+
     }
 
     // 選択肢をクリックした時の処理
