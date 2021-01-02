@@ -1,5 +1,6 @@
 package com.misakikawaguchi.quizapp
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
@@ -146,7 +147,15 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                             setQuestion()
                         }else -> {
                         // コンプリートのトーストを表示する
-                        Toast.makeText(this, "You have successfully completed the quiz.", Toast.LENGTH_SHORT).show()
+                        // Toast.makeText(this, "You have successfully completed the quiz.", Toast.LENGTH_SHORT).show()
+
+                        // 作成した結果画面を起動し、ユーザー名とスコアの詳細を渡す
+                        val intent = Intent(this, ResultActivity::class.java)
+                        intent.putExtra(Constants.USER_NAME, mUserName)
+                        intent.putExtra(Constants.CORRECT_ANSWERS, mCorrectAnswers)
+                        intent.putExtra(Constants.TOTAL_QUESTIONS, mQuestionsList!!.size)
+                        startActivity(intent)
+                        finish()
                         }
                     }
 
