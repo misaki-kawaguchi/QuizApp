@@ -23,6 +23,9 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     // 正解を計算するための変数を追加
     private var mCorrectAnswers: Int = 0
 
+    // インテントから名前を取得するための変数を作成
+    private var mUserName: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_questions)
