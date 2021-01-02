@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please enter your name", Toast.LENGTH_SHORT).show()
             } else {
                 val intent = Intent(this, QuizQuestionsActivity::class.java)
+                // 作成した定数変数を使用して、インテントを介して名前を渡す
+                intent.putExtra(Constants.USER_NAME, et_name.text.toString() )
                 startActivity(intent)
                 finish()
             }
