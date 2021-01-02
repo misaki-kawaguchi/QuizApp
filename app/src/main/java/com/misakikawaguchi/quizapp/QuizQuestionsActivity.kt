@@ -34,6 +34,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         tv_option_two.setOnClickListener(this)
         tv_option_three.setOnClickListener(this)
         tv_option_four.setOnClickListener(this)
+        btn_submit.setOnClickListener(this)
     }
 
     // 以前にonCreateメソッドで実行したUIコンポーネントに質問を設定する関数を作成
