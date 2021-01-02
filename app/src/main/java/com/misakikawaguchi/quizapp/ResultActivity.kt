@@ -1,5 +1,6 @@
 package com.misakikawaguchi.quizapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -23,5 +24,10 @@ class ResultActivity : AppCompatActivity() {
 
         // スコアを表示
         tv_score.text = "Your Score is $correctAnswers out of $totalQuestions."
+
+        // FINISHボタンを押すと最初の画面に戻る
+        btn_finish.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
     }
 }
