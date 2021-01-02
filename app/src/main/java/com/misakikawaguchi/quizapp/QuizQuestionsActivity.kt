@@ -40,6 +40,8 @@ class QuizQuestionsActivity : AppCompatActivity() {
         // 問題を表示する。0からスタートなので、currentPosition - 1と設定
         val question: Question? = mQuestionsList!![mCurrentPosition - 1]
 
+        defaultOptionsView()
+
         // progressBarの進捗状況を設定する
         progressBar.progress = mCurrentPosition
         // progressBarのテキストを設定
