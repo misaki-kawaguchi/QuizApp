@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_quiz_questions.*
 
@@ -47,11 +48,18 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         // リストからUIに質問を設定する
         // 今何問目から表示。最初なので1を設定する
         // mCurrentPositionに変更
-        mCurrentPosition = 1
+        // mCurrentPosition = 1
         // 問題を表示する。0からスタートなので、currentPosition - 1と設定
         val question: Question? = mQuestionsList!![mCurrentPosition - 1]
 
         defaultOptionsView()
+
+        // 質問の位置が最後かどうかをここで確認してから、ボタンのテキストを変更
+        if (mCurrentPosition == mQuestionsList!!.size) {
+            btn_submit.text = "FINISH"
+        } else {
+            btn_submit.text = "SUBMIT"
+        }
 
         // progressBarの進捗状況を設定する
         progressBar.progress = mCurrentPosition
@@ -126,6 +134,17 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                     // 次のページに進む
                     mCurrentPosition++
 
+                    when {
+                        // 現在のポジションがリストの数以下の場合質問を表示する
+                        mCurrentPosition <= mQuestionsList!!.size -> {
+                            setQuestion()
+                        }else -> {
+                        // コンプリートのトーストを表示する
+                        Toast.makeText(this, "You have successfully completed the quiz.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+                // 選択した場合
                 }else {
 
                     // 質問のリストをquestionに代入する
