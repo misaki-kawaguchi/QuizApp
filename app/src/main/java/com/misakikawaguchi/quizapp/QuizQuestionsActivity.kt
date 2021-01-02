@@ -18,23 +18,28 @@ class QuizQuestionsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_questions)
 
-        // 質問のリストを取得して、UIに表示する。ログに出力する
-        val questionsList = Constants.getQuestions()
-        Log.e("Questions Size", "${questionsList.size}")
-        for (i in questionsList) {
-            Log.e("Questions", i.question)
-        }
+        // 質問のリストを取得して、UIに表示する。ログに出力する →グローバル変数（mQuestionsList）に変更する
+        mQuestionsList = Constants.getQuestions()
 
+        // 質問を表示する
+        setQuestion()
+    }
+
+    // 以前にonCreateメソッドで実行したUIコンポーネントに質問を設定する関数を作成
+    // そして、後で使用する変数のいくつかをグローバルにする
+    // 質問をUIコンポーネントに設定するための関数
+    private fun setQuestion() {
         // リストからUIに質問を設定する
         // 今何問目から表示。最初なので1を設定する
-        val currentPosition = 1
+        // mCurrentPositionに変更
+        mCurrentPosition = 1
         // 問題を表示する。0からスタートなので、currentPosition - 1と設定
-        val question: Question? = questionsList[currentPosition - 1]
+        val question: Question? = mQuestionsList!![mCurrentPosition - 1]
 
         // progressBarの進捗状況を設定する
-        progressBar.progress = currentPosition
+        progressBar.progress = mCurrentPosition
         // progressBarのテキストを設定
-        tv_progress.text = "$currentPosition" + "/" + progressBar.getMax()
+        tv_progress.text = "$mCurrentPosition" + "/" + progressBar.getMax()
 
         // 現在の質問とオプションを設定する
         tv_question.text = question!!.question
