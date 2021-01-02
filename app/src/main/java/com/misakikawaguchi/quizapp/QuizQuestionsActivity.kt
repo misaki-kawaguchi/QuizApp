@@ -6,6 +6,14 @@ import android.util.Log
 import kotlinx.android.synthetic.main.activity_quiz_questions.*
 
 class QuizQuestionsActivity : AppCompatActivity() {
+
+    // 現在何問目かと質問リストのグローバル変数を作成
+    private var mCurrentPosition: Int = 1
+    private var mQuestionsList: ArrayList<Question>? = null
+
+    // 選択したオプションのグローバル変数
+    private var mSelectedOptionPosition: Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_questions)
