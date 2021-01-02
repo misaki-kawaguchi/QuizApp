@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QuizApp">
-        <activity android:name=".QuizQuestionsActivity"></activity>
+        <!-- 画面を縦に固定 -->
+        <activity
+            android:name=".QuizQuestionsActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
         <!-- アクションバーが表示されないようにする -->
         <!-- 画面を縦に固定 -->
         <!-- 使用可能なスペースに合わせてレイアウトがサイズ変更されるようにする -->
