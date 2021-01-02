@@ -30,6 +30,9 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_questions)
 
+        // インテントからUSER_NAMEを取得し、それに変数を割り当てる
+        mUserName = intent.getStringExtra(Constants.USER_NAME)
+
         // 質問のリストを取得して、UIに表示する。ログに出力する →グローバル変数（mQuestionsList）に変更する
         mQuestionsList = Constants.getQuestions()
 
